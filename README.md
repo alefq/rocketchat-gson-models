@@ -4,7 +4,7 @@
 # rocketchat-gson-models
 Java models for [Rocket.Chat](https://rocket.chat) messages with [gson](https://github.com/google/gson) annotations.
 
-Use to marshal/unmarshal json messages to/from Rocket.Chat. Makes building incoming and outgoing webhooks based on Java a lot easier.
+Use gson to effortlessly convert between Rocket.Chat json messages and Java objects. Makes building incoming and outgoing webhooks based on Java a lot smoother.
 
 ## Download
-Use your favorite build tool to download from [jitpack](https://jitpack.io/#gustavkarlsson/rocketchat-gson-models)
+Point your favorite build tool to [jitpack](https://jitpack.io/#gustavkarlsson/rocketchat-gson-models)
