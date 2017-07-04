@@ -10,9 +10,6 @@ public final class FromRocketChatMessage {
 	@SerializedName("id")
 	private Long id;
 
-	@SerializedName("bot")
-	private Boolean bot;
-
 	@SerializedName("message_id")
 	private String messageId;
 
@@ -34,6 +31,9 @@ public final class FromRocketChatMessage {
 	@SerializedName("text")
 	private String text;
 
+	@SerializedName("alias")
+	private String alias;
+
 	@SerializedName("timestamp")
 	private Date timestamp;
 
@@ -49,9 +49,8 @@ public final class FromRocketChatMessage {
 	public FromRocketChatMessage() {
 	}
 
-	public FromRocketChatMessage(Long id, Boolean bot, String messageId, String token, String channelId, String channelName, String userId, String userName, String text, Date timestamp, User user, Room room, Message message) {
+	public FromRocketChatMessage(Long id, String messageId, String token, String channelId, String channelName, String userId, String userName, String text, String alias, Date timestamp, User user, Room room, Message message) {
 		this.id = id;
-		this.bot = bot;
 		this.messageId = messageId;
 		this.token = token;
 		this.channelId = channelId;
@@ -59,6 +58,7 @@ public final class FromRocketChatMessage {
 		this.userId = userId;
 		this.userName = userName;
 		this.text = text;
+		this.alias = alias;
 		this.timestamp = timestamp;
 		this.user = user;
 		this.room = room;
@@ -71,14 +71,6 @@ public final class FromRocketChatMessage {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public Boolean getBot() {
-		return bot;
-	}
-
-	public void setBot(Boolean bot) {
-		this.bot = bot;
 	}
 
 	public String getMessageId() {
@@ -137,6 +129,14 @@ public final class FromRocketChatMessage {
 		this.text = text;
 	}
 
+	public String getAlias() {
+		return alias;
+	}
+
+	public void setAlias(String alias) {
+		this.alias = alias;
+	}
+
 	public Date getTimestamp() {
 		return timestamp;
 	}
@@ -175,7 +175,6 @@ public final class FromRocketChatMessage {
 		if (o == null || getClass() != o.getClass()) return false;
 		FromRocketChatMessage that = (FromRocketChatMessage) o;
 		return Objects.equals(id, that.id) &&
-				Objects.equals(bot, that.bot) &&
 				Objects.equals(messageId, that.messageId) &&
 				Objects.equals(token, that.token) &&
 				Objects.equals(channelId, that.channelId) &&
@@ -183,6 +182,7 @@ public final class FromRocketChatMessage {
 				Objects.equals(userId, that.userId) &&
 				Objects.equals(userName, that.userName) &&
 				Objects.equals(text, that.text) &&
+				Objects.equals(alias, that.alias) &&
 				Objects.equals(timestamp, that.timestamp) &&
 				Objects.equals(user, that.user) &&
 				Objects.equals(room, that.room) &&
@@ -191,14 +191,13 @@ public final class FromRocketChatMessage {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, bot, messageId, token, channelId, channelName, userId, userName, text, timestamp, user, room, message);
+		return Objects.hash(id, messageId, token, channelId, channelName, userId, userName, text, alias, timestamp, user, room, message);
 	}
 
 	@Override
 	public String toString() {
 		return "FromRocketChatMessage{" +
 				"id=" + id +
-				", bot=" + bot +
 				", messageId='" + messageId + '\'' +
 				", token='" + token + '\'' +
 				", channelId='" + channelId + '\'' +
@@ -206,6 +205,7 @@ public final class FromRocketChatMessage {
 				", userId='" + userId + '\'' +
 				", userName='" + userName + '\'' +
 				", text='" + text + '\'' +
+				", alias='" + alias + '\'' +
 				", timestamp=" + timestamp +
 				", user=" + user +
 				", room=" + room +
