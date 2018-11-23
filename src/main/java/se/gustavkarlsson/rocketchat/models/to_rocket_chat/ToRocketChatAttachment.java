@@ -26,7 +26,7 @@ public final class ToRocketChatAttachment {
 	private String titleLink;
 
 	@SerializedName("title_link_download")
-	private String titleLinkDownload;
+	private Boolean titleLinkDownload;
 
 	@SerializedName("text")
 	private String text;
@@ -58,10 +58,7 @@ public final class ToRocketChatAttachment {
 	public ToRocketChatAttachment() {
 	}
 
-	public ToRocketChatAttachment(String authorName, String authorLink, String authorIcon, String color, String title,
-								  String titleLink, String titleLinkDownload, String text, String imageUrl,
-								  String thumbUrl, Long timestamp, List<Field> fields, String messageLink,
-								  Boolean collapsed, String audioUrl, String videoUrl) {
+	public ToRocketChatAttachment(String authorName, String authorLink, String authorIcon, String color, String title, String titleLink, Boolean titleLinkDownload, String text, String imageUrl, String thumbUrl, Long timestamp, List<Field> fields, String messageLink, Boolean collapsed, String audioUrl, String videoUrl) {
 		this.authorName = authorName;
 		this.authorLink = authorLink;
 		this.authorIcon = authorIcon;
@@ -128,11 +125,11 @@ public final class ToRocketChatAttachment {
 		this.titleLink = titleLink;
 	}
 
-	public String getTitleLinkDownload() {
+	public Boolean getTitleLinkDownload() {
 		return titleLinkDownload;
 	}
 
-	public void setTitleLinkDownload(String titleLinkDownload) {
+	public void setTitleLinkDownload(Boolean titleLinkDownload) {
 		this.titleLinkDownload = titleLinkDownload;
 	}
 
