@@ -31,6 +31,9 @@ public final class FromRocketChatMessage {
 	@SerializedName("text")
 	private String text;
 
+	@SerializedName("bot")
+	private Boolean bot;
+
 	@SerializedName("alias")
 	private String alias;
 
@@ -49,7 +52,7 @@ public final class FromRocketChatMessage {
 	public FromRocketChatMessage() {
 	}
 
-	public FromRocketChatMessage(Long id, String messageId, String token, String channelId, String channelName, String userId, String userName, String text, String alias, Date timestamp, User user, Room room, Message message) {
+	public FromRocketChatMessage(Long id, String messageId, String token, String channelId, String channelName, String userId, String userName, String text, Boolean bot, String alias, Date timestamp, User user, Room room, Message message) {
 		this.id = id;
 		this.messageId = messageId;
 		this.token = token;
@@ -58,6 +61,7 @@ public final class FromRocketChatMessage {
 		this.userId = userId;
 		this.userName = userName;
 		this.text = text;
+		this.bot = bot;
 		this.alias = alias;
 		this.timestamp = timestamp;
 		this.user = user;
@@ -129,6 +133,14 @@ public final class FromRocketChatMessage {
 		this.text = text;
 	}
 
+	public Boolean isBot() {
+		return bot;
+	}
+
+	public void setBot(Boolean bot) {
+		this.bot = bot;
+	}
+
 	public String getAlias() {
 		return alias;
 	}
@@ -182,6 +194,7 @@ public final class FromRocketChatMessage {
 				Objects.equals(userId, that.userId) &&
 				Objects.equals(userName, that.userName) &&
 				Objects.equals(text, that.text) &&
+				Objects.equals(bot, that.bot) &&
 				Objects.equals(alias, that.alias) &&
 				Objects.equals(timestamp, that.timestamp) &&
 				Objects.equals(user, that.user) &&
@@ -191,7 +204,7 @@ public final class FromRocketChatMessage {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, messageId, token, channelId, channelName, userId, userName, text, alias, timestamp, user, room, message);
+		return Objects.hash(id, messageId, token, channelId, channelName, userId, userName, text, bot, alias, timestamp, user, room, message);
 	}
 
 	@Override
@@ -205,6 +218,7 @@ public final class FromRocketChatMessage {
 				", userId='" + userId + '\'' +
 				", userName='" + userName + '\'' +
 				", text='" + text + '\'' +
+				", bot='" + bot + '\'' +
 				", alias='" + alias + '\'' +
 				", timestamp=" + timestamp +
 				", user=" + user +
