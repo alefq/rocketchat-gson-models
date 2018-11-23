@@ -7,11 +7,20 @@ import java.util.Objects;
 
 public final class ToRocketChatMessage {
 
-	@SerializedName("username")
-	private String username;
+	@SerializedName("alias")
+	private String alias;
 
-	@SerializedName("icon_url")
-	private String iconUrl;
+	@SerializedName("avatar")
+	private String avatar;
+
+	@SerializedName("channel")
+	private String channel;
+
+	@SerializedName("emoji")
+	private String emoji;
+
+	@SerializedName("roomId")
+	private String roomId;
 
 	@SerializedName("text")
 	private String text;
@@ -22,27 +31,54 @@ public final class ToRocketChatMessage {
 	public ToRocketChatMessage() {
 	}
 
-	public ToRocketChatMessage(String username, String iconUrl, String text, List<ToRocketChatAttachment> attachments) {
-		this.username = username;
-		this.iconUrl = iconUrl;
+	public ToRocketChatMessage(String alias, String avatar, String channel, String emoji, String roomId, String text, List<ToRocketChatAttachment> attachments) {
+		this.alias = alias;
+		this.avatar = avatar;
+		this.channel = channel;
+		this.emoji = emoji;
+		this.roomId = roomId;
 		this.text = text;
 		this.attachments = attachments;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getAlias() {
+		return alias;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setAlias(String alias) {
+		this.alias = alias;
 	}
 
-	public String getIconUrl() {
-		return iconUrl;
+	public String getAvatar() {
+		return avatar;
 	}
 
-	public void setIconUrl(String iconUrl) {
-		this.iconUrl = iconUrl;
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
+	}
+
+	public String getChannel() {
+		return channel;
+	}
+
+	public void setChannel(String channel) {
+		this.channel = channel;
+	}
+
+	public String getEmoji() {
+		return emoji;
+	}
+
+	public void setEmoji(String emoji) {
+		this.emoji = emoji;
+	}
+
+	public String getRoomId() {
+		return roomId;
+	}
+
+	public void setRoomId(String roomId) {
+		this.roomId = roomId;
 	}
 
 	public String getText() {
@@ -66,22 +102,28 @@ public final class ToRocketChatMessage {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 		ToRocketChatMessage that = (ToRocketChatMessage) o;
-		return Objects.equals(username, that.username) &&
-				Objects.equals(iconUrl, that.iconUrl) &&
+		return Objects.equals(alias, that.alias) &&
+				Objects.equals(avatar, that.avatar) &&
+				Objects.equals(channel, that.channel) &&
+				Objects.equals(emoji, that.emoji) &&
+				Objects.equals(roomId, that.roomId) &&
 				Objects.equals(text, that.text) &&
 				Objects.equals(attachments, that.attachments);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(username, iconUrl, text, attachments);
+		return Objects.hash(alias, avatar, channel, emoji, roomId, text, attachments);
 	}
 
 	@Override
 	public String toString() {
 		return "ToRocketChatMessage{" +
-				"username='" + username + '\'' +
-				", iconUrl='" + iconUrl + '\'' +
+				"alias='" + alias + '\'' +
+				", avatar='" + avatar + '\'' +
+				", channel='" + channel + '\'' +
+				", emoji='" + emoji + '\'' +
+				", roomId='" + roomId + '\'' +
 				", text='" + text + '\'' +
 				", attachments=" + attachments +
 				'}';
