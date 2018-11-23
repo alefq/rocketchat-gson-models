@@ -25,8 +25,8 @@ public final class ToRocketChatAttachment {
 	@SerializedName("title_link")
 	private String titleLink;
 
-	@SerializedName("pretext")
-	private String pretext;
+	@SerializedName("title_link_download")
+	private String titleLinkDownload;
 
 	@SerializedName("text")
 	private String text;
@@ -43,24 +43,41 @@ public final class ToRocketChatAttachment {
 	@SerializedName("fields")
 	private List<Field> fields;
 
+	@SerializedName("message_link")
+	private String messageLink;
+
+	@SerializedName("collapsed")
+	private Boolean collapsed;
+
+	@SerializedName("audio_url")
+	private String audioUrl;
+
+	@SerializedName("video_url")
+	private String videoUrl;
+
 	public ToRocketChatAttachment() {
 	}
 
 	public ToRocketChatAttachment(String authorName, String authorLink, String authorIcon, String color, String title,
-								  String titleLink, String pretext, String text, String imageUrl, String thumbUrl, Long timestamp,
-								  List<Field> fields) {
+								  String titleLink, String titleLinkDownload, String text, String imageUrl,
+								  String thumbUrl, Long timestamp, List<Field> fields, String messageLink,
+								  Boolean collapsed, String audioUrl, String videoUrl) {
 		this.authorName = authorName;
 		this.authorLink = authorLink;
 		this.authorIcon = authorIcon;
 		this.color = color;
 		this.title = title;
 		this.titleLink = titleLink;
-		this.pretext = pretext;
+		this.titleLinkDownload = titleLinkDownload;
 		this.text = text;
 		this.imageUrl = imageUrl;
 		this.thumbUrl = thumbUrl;
 		this.timestamp = timestamp;
 		this.fields = fields;
+		this.messageLink = messageLink;
+		this.collapsed = collapsed;
+		this.audioUrl = audioUrl;
+		this.videoUrl = videoUrl;
 	}
 
 	public String getAuthorName() {
@@ -111,12 +128,12 @@ public final class ToRocketChatAttachment {
 		this.titleLink = titleLink;
 	}
 
-	public String getPretext() {
-		return pretext;
+	public String getTitleLinkDownload() {
+		return titleLinkDownload;
 	}
 
-	public void setPretext(String pretext) {
-		this.pretext = pretext;
+	public void setTitleLinkDownload(String titleLinkDownload) {
+		this.titleLinkDownload = titleLinkDownload;
 	}
 
 	public String getText() {
@@ -159,6 +176,38 @@ public final class ToRocketChatAttachment {
 		this.fields = fields;
 	}
 
+	public String getMessageLink() {
+		return messageLink;
+	}
+
+	public void setMessageLink(String messageLink) {
+		this.messageLink = messageLink;
+	}
+
+	public Boolean getCollapsed() {
+		return collapsed;
+	}
+
+	public void setCollapsed(Boolean collapsed) {
+		this.collapsed = collapsed;
+	}
+
+	public String getAudioUrl() {
+		return audioUrl;
+	}
+
+	public void setAudioUrl(String audioUrl) {
+		this.audioUrl = audioUrl;
+	}
+
+	public String getVideoUrl() {
+		return videoUrl;
+	}
+
+	public void setVideoUrl(String videoUrl) {
+		this.videoUrl = videoUrl;
+	}
+
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
@@ -170,18 +219,21 @@ public final class ToRocketChatAttachment {
 				Objects.equals(color, that.color) &&
 				Objects.equals(title, that.title) &&
 				Objects.equals(titleLink, that.titleLink) &&
-				Objects.equals(pretext, that.pretext) &&
+				Objects.equals(titleLinkDownload, that.titleLinkDownload) &&
 				Objects.equals(text, that.text) &&
 				Objects.equals(imageUrl, that.imageUrl) &&
 				Objects.equals(thumbUrl, that.thumbUrl) &&
 				Objects.equals(timestamp, that.timestamp) &&
-				Objects.equals(fields, that.fields);
+				Objects.equals(fields, that.fields) &&
+				Objects.equals(messageLink, that.messageLink) &&
+				Objects.equals(collapsed, that.collapsed) &&
+				Objects.equals(audioUrl, that.audioUrl) &&
+				Objects.equals(videoUrl, that.videoUrl);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(authorName, authorLink, authorIcon, color, title, titleLink, pretext, text, imageUrl,
-				thumbUrl, timestamp, fields);
+		return Objects.hash(authorName, authorLink, authorIcon, color, title, titleLink, titleLinkDownload, text, imageUrl, thumbUrl, timestamp, fields, messageLink, collapsed, audioUrl, videoUrl);
 	}
 
 	@Override
@@ -193,12 +245,16 @@ public final class ToRocketChatAttachment {
 				", color='" + color + '\'' +
 				", title='" + title + '\'' +
 				", titleLink='" + titleLink + '\'' +
-				", pretext='" + pretext + '\'' +
+				", titleLinkDownload='" + titleLinkDownload + '\'' +
 				", text='" + text + '\'' +
 				", imageUrl='" + imageUrl + '\'' +
 				", thumbUrl='" + thumbUrl + '\'' +
 				", timestamp=" + timestamp +
 				", fields=" + fields +
+				", messageLink='" + messageLink + '\'' +
+				", collapsed=" + collapsed +
+				", audioUrl='" + audioUrl + '\'' +
+				", videoUrl='" + videoUrl + '\'' +
 				'}';
 	}
 }
