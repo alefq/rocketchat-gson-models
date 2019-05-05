@@ -117,12 +117,12 @@ public final class FromRocketChatMessage {
 		this.bot = bot;
 	}
 
-	public void setEdited(Boolean edited) {
-		this.edited = edited;
+	public Boolean isEdited() {
+		return edited;
 	}
 
-	public Boolean getEdited() {
-		return edited;
+	public void setEdited(Boolean edited) {
+		this.edited = edited;
 	}
 
 	public String getAlias() {
