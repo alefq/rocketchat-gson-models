@@ -28,6 +28,9 @@ public final class FromRocketChatMessage {
 	@SerializedName("bot")
 	private Boolean bot;
 
+	@SerializedName("isEdited")
+	private Boolean edited;
+
 	@SerializedName("alias")
 	private String alias;
 
@@ -43,7 +46,7 @@ public final class FromRocketChatMessage {
 	public FromRocketChatMessage() {
 	}
 
-	public FromRocketChatMessage(String token, String channelId, String channelName, String userId, String userName, String text, Boolean bot, String alias, String messageId, Date timestamp, String triggerWord) {
+	public FromRocketChatMessage(String token, String channelId, String channelName, String userId, String userName, String text, Boolean bot, Boolean edited, String alias, String messageId, Date timestamp, String triggerWord) {
 		this.token = token;
 		this.channelId = channelId;
 		this.channelName = channelName;
@@ -51,6 +54,7 @@ public final class FromRocketChatMessage {
 		this.userName = userName;
 		this.text = text;
 		this.bot = bot;
+		this.edited = edited;
 		this.alias = alias;
 		this.messageId = messageId;
 		this.timestamp = timestamp;
@@ -113,6 +117,14 @@ public final class FromRocketChatMessage {
 		this.bot = bot;
 	}
 
+	public Boolean isEdited() {
+		return edited;
+	}
+
+	public void setEdited(Boolean edited) {
+		this.edited = edited;
+	}
+
 	public String getAlias() {
 		return alias;
 	}
@@ -157,6 +169,7 @@ public final class FromRocketChatMessage {
 				Objects.equals(userName, that.userName) &&
 				Objects.equals(text, that.text) &&
 				Objects.equals(bot, that.bot) &&
+				Objects.equals(edited, that.edited) &&
 				Objects.equals(alias, that.alias) &&
 				Objects.equals(messageId, that.messageId) &&
 				Objects.equals(timestamp, that.timestamp) &&
@@ -165,7 +178,7 @@ public final class FromRocketChatMessage {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(token, channelId, channelName, userId, userName, text, bot, alias, messageId, timestamp, triggerWord);
+		return Objects.hash(token, channelId, channelName, userId, userName, text, bot, edited, alias, messageId, timestamp, triggerWord);
 	}
 
 	@Override
@@ -178,6 +191,7 @@ public final class FromRocketChatMessage {
 				", userName='" + userName + '\'' +
 				", text='" + text + '\'' +
 				", bot=" + bot +
+				", isEdited=" + edited +
 				", alias='" + alias + '\'' +
 				", messageId='" + messageId + '\'' +
 				", timestamp=" + timestamp +
